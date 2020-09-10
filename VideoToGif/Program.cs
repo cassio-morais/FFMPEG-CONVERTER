@@ -6,17 +6,17 @@ namespace VideoToGif
 {
     class Program
     {
-        static async Task Main(string[] args)
+        static void Main(string[] args)
         
         {
             var video = @"D:\ffmpeg\bin\dogs.mp4";
 
-            await Program.Converter(video);
+            Converter(video);
             Console.WriteLine("completo!");
 
         }
 
-        internal static async Task Converter(string inputFile)
+        internal static void Converter(string inputFile)
         {
 
             var splitFile = inputFile.Split(".");
@@ -27,7 +27,7 @@ namespace VideoToGif
 
             var ffmpeg = new Engine(@"D:\ffmpeg\bin\ffmpeg.exe"); // aponta o conversor
 
-            await ffmpeg.ConvertAsync(inputVideo, outputGif);
+            ffmpeg.ConvertAsync(inputVideo, outputGif);
 
         }
     }
